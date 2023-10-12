@@ -1,13 +1,16 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import Colors from '../constants/Colors';
 import { ExternalLink } from './ExternalLink';
 import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
-
+import CustomButton from './CustomButton';
 
 export default function EditScreenInfo({ path }: { path: string }) {
+
+  const handleScroll = () => {
+
+  }
   return (
     <View>
       <View style={styles.getStartedContainer}>
@@ -42,6 +45,23 @@ export default function EditScreenInfo({ path }: { path: string }) {
           </Text>
         </ExternalLink>
       </View>
+
+      {/* Add and style a button */}
+      {/* <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          // Handle button press
+        }}
+      >
+        <Text style={styles.buttonText}>Click Me</Text>
+      </TouchableOpacity> */}
+
+      
+      <CustomButton 
+              subtitle={'Register'} 
+              onPress={handleScroll}
+              containerStyles={styles.button}
+      />
     </View>
   );
 }
@@ -73,5 +93,15 @@ const styles = StyleSheet.create({
   },
   helpLinkText: {
     textAlign: 'center',
+  },
+  button: {
+    backgroundColor: '#BAFA3D', // Set your desired background color
+    padding: 10,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: 'white', // Set your desired text color
+    fontSize: 16,
   },
 });
